@@ -51,7 +51,7 @@ $(function () {
 		$(".controls .prev").click(function () {
 			//console.log(btnIdx = btnIdx - 1);
 			btnIdx = btnIdx - 1;
-			if (current == 0) {
+			if (btnIdx < 0) {	//current == 0
 				btnIdx = visual.length-1 ;
 			}
 			button.removeClass("on");
