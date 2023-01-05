@@ -31,8 +31,8 @@ $(function () {
     if (current == btnIdx) return;
     let cu = visual.eq(current);
     let ne = visual.eq(btnIdx);
-    cu.css("left", "0").stop().animate({ left: "-100%" });
-    ne.css("left", "100%").stop().animate({ left: "0%" });
+    cu.css("z-index", "0").stop().animate({ "z-index": "2" });
+    ne.css("z-index", "1").stop().animate({ "z-index": "0" });
     current = btnIdx;
   }
   
@@ -48,7 +48,7 @@ $(function () {
   }
   
   //좌우 컨트롤버튼
-  controls()
+
   function controls(){
   $(".controls .next").click(function () {
     btnIdx = btnIdx + 1;
@@ -60,22 +60,22 @@ $(function () {
   
     let cu = visual.eq(current);
     let ne = visual.eq(btnIdx);
-    cu.css("left", "0").stop().animate({ left: "-100%" });
-    ne.css("left", "100%").stop().animate({ left: "0" });
+    cu.css("z-index", "0").stop().animate({ "z-index": "2" });
+    ne.css("z-index", "1").stop().animate({ "z-index": "0" });
     current = btnIdx;
     return false;
   });
   $(".controls .prev").click(function () {
     btnIdx = btnIdx - 1;
-    if (current == 0) {
+    if (btnIdx == 0) {
       btnIdx = visual.length - 1;
     }
     button.removeClass("on");
     button.eq(btnIdx).addClass("on");
     let cu = visual.eq(current);
     let pr = visual.eq(btnIdx);
-    cu.css("left", "0").stop().animate({ left: "100%" });
-    pr.css("left", "-100%").stop().animate({ left: "0" });
+    cu.css("z-index", "0").stop().animate({ "z-index": "2" });
+    pr.css("z-index", "1").stop().animate({ "z-index": "0" });
     current = btnIdx;
     return false;
   });
